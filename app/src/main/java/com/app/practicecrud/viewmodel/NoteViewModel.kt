@@ -32,7 +32,11 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
     fun saveOrUpdate() {
         if (isUpdateOrDelete) {
             noteToUpdateOrDelete.note = inputNote.value!!
-
+            update(noteToUpdateOrDelete)
+        } else {
+            val note = inputNote.value!!
+            insert(Notes(0, note))
+            inputNote.value = ""
         }
     }
 
