@@ -14,7 +14,8 @@ class NotesRecyclerViewAdapter(
 ) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding: RowItemsNoteBinding = DataBindingUtil.inflate(layoutInflater, R.layout.row_items_note, parent, false)
+        val binding: RowItemsNoteBinding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.row_items_note, parent, false)
         return MyViewHolder(binding)
     }
 
@@ -25,8 +26,8 @@ class NotesRecyclerViewAdapter(
     override fun getItemCount(): Int = noteList.size
 }
 
-class MyViewHolder(val binding: RowItemsNoteBinding): RecyclerView.ViewHolder(binding.root){
-    fun bind(notes: Notes, clickListener: (Notes) -> Unit){
+class MyViewHolder(val binding: RowItemsNoteBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(notes: Notes, clickListener: (Notes) -> Unit) {
         binding.nameTextView.text = notes.note
         binding.nameTextView.setOnClickListener {
             clickListener(notes)
